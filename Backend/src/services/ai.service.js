@@ -125,7 +125,7 @@ async function generatePdfFromHtml(htmlContent) {
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath(),
-    headless: chromium.headless,
+    headless: true,
   });
 
   const page = await browser.newPage();
@@ -146,7 +146,6 @@ async function generatePdfFromHtml(htmlContent) {
   });
 
   await browser.close();
-
   return pdfBuffer;
 }
 
